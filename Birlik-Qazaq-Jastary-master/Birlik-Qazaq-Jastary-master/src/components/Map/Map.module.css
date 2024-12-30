@@ -1,0 +1,69 @@
+.mapContainer {
+    position: relative;
+    width: 100%;
+    height: 800px;
+}
+
+#turkey-map {
+    width: 100%;
+    height: 100%;
+    border: 2px solid #ccc; /* Добавлен тонкий бордюр для контраста */
+    border-radius: 10px; /* Закругленные углы */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Легкая тень для объема */
+}
+
+/* Стили для инфобокса */
+.infoBox, .info-box {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8); /* Чуть более темный фон */
+    color: #fff;
+    font-size: 14px; /* Универсальный размер шрифта */
+    padding: 12px;
+    border-radius: 8px; /* Больше скругления для современного вида */
+    pointer-events: none;
+    z-index: 10;
+    display: none; /* Скрываем по умолчанию */
+    max-width: 300px; /* Ограничиваем ширину */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Тень для четкости */
+}
+
+/* Анимация появления инфобокса */
+.infoBox.show, .info-box.show {
+    display: block; /* Появляется при необходимости */
+    animation: fadeIn 0.3s ease-in-out; /* Плавная анимация */
+}
+
+/* Ключевые кадры для анимации */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Адаптивные стили */
+@media (max-width: 768px) {
+    .mapContainer {
+        height: 600px; /* Уменьшенная высота для планшетов */
+    }
+
+    .infoBox, .info-box {
+        font-size: 12px; /* Меньше текста для маленьких экранов */
+        padding: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .mapContainer {
+        height: 400px; /* Еще меньше для телефонов */
+    }
+
+    .infoBox, .info-box {
+        font-size: 10px; /* Минимальный шрифт */
+        padding: 6px;
+    }
+}
